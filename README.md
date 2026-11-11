@@ -6,7 +6,7 @@ This panel allow you to query your session after request.
 
 With pip:
 
-    pip install -e git+git://github.com/chronossc/django-toolbar-session-panel.git#egg=debug_toolbar_session_panel
+    pip install debug_toolbar_session_panel@git+https://github.com/clushkou/django-toolbar-session-panel.git#egg=debug_toolbar_session_panel
 
 and in settings.py:
 
@@ -17,6 +17,3 @@ and in settings.py:
         'debug_toolbar_session_panel.panels.SessionDebugPanel',
     )
 
-than you will see something like:
-
-<img src="http://chronosbox.org/screenshots/session_demo.png" />

@@ -1,5 +1,4 @@
 #!/usr/bin/env python
-# -*- coding: utf-8 -*-
 
 # from distutils.core import setup
 from setuptools import setup, find_packages
@@ -10,7 +9,7 @@ setup(
     description="",
     author="Felipe 'chronos' Prenholato",
     author_email="philipe.rp@gmail.com",
-    url="http://github.com/chronossc/django-data-importer",
+    url="http://github.com/clushkou/django-toolbar-session-panel",
     packages = find_packages(),
     package_data={'': [
         'templates/debug_toolbar_session_panel/*',
