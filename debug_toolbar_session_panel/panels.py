@@ -1,9 +1,8 @@
-# -*- coding: utf-8 -*-
-from debug_toolbar.panels import DebugPanel 
-from django.utils.translation import ugettext_lazy as _
-from django.utils.datastructures import SortedDict
+from collections import OrderedDict
+from debug_toolbar.panels import Panel
+from django.utils.translation import gettext_lazy as _
 
-class SessionDebugPanel(DebugPanel):
+class SessionDebugPanel(Panel):
     """
     Panel that displays session content
     """
@@ -17,17 +16,14 @@ class SessionDebugPanel(DebugPanel):
     def title(self):
         return self.nav_title()
 
-    def url(self):
-        return ''
-
-    def process_response(self, request, response):
+    def process_request(self, request):
         data = {'session':{
-            'info': SortedDict([
+            'info': OrderedDict([
                 ('session_key',request.session.session_key),
-                ('user', request._cached_user),
                 ('modified', request.session.modified),
                 ('accessed', request.session.accessed)
                 ]),
             'data': dict(request.session.items())
         }}
         self.record_stats(data)
+        return self.get_response(request)
